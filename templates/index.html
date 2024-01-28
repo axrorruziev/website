@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WELCOME TO MY WEBSITE</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+  <h3><strong>Welcome <br> Your username:{{ user.username }} <br> {% if user.email %} Your email:{{ user.email }} {% else %} Без email {% endif %}</strong></h3>
+<h1><strong><a href="{% url 'logout' %}">Logout</a></strong></h1>
+<br>
+<h1><strong><a href="{% url 'news' %}">главная страница</a></strong></h1>
+
+
+{% else %}
+<h1><strong>Пройдите авторизацию пожалуйста(если у вас есть аккаунт нажмите login,а если нету то нажмите signup)</strong></h1>
+<h3><img src="https://static.tildacdn.com/tild3039-6234-4363-a633-623736356363/Infinii_7.png"></h3>
+<button><strong><a href="{% url 'login' %}"><h1>LOGIN</h1></a></strong></button>
+  <br>
+<button><strong><a href="{% url 'signup' %}"><h1>SIGNUP</h1></a></strong></button>
+
+{% endif %}
+
+</body>
+</html>

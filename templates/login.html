@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AUTHORIZATION</title>
+</head>
+<body>
+<h3><strong>АВТОРИЗАЦИЯ-AUTHORIZATION</strong></h3>
+<form method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button><strong> type="submit" >Login</strong></button>
+    <strong><a  href="{% url 'signup' %}">You don't have account?</a></strong>
+    <strong><a href="{% url 'signup' %}">У вас нету аккаунта?</a></strong>
+</form>
